@@ -16,24 +16,27 @@ use App\Http\Controllers\UpcomingHolidayController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 Route::get('/', function () {
-    return view('welcome'); });
-Route::get('user/{id}', [UserController::class, 'index']);
-Route::get('supportticket/{id}', [UserController::class, 'supportTicket']);
-Route::get('project/{id}', [UserController::class, 'userProject']);
+    return view('welcome'); }
+);
+
+
 Route::get('holidays', [UpcomingHolidayController::class, 'index']);
-Route::get('bonus/{id}', [UserController::class, 'bonus']);
+
 Route::get('/usersimage/{id}', [UserController::class, 'image']);
 Route::post('login/user', [UserController::class, 'loginUser']);
 Route::post('google-login', [UserController::class,'googleLogin']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('user', [UserController::class, 'userDetails']);
-    Route::get('logout', [UserController::class, 'logout']);
-   
-
+Route::get('user', [UserController::class, 'userDetails']);
+Route::get('user/{id}', [UserController::class, 'index']);
+Route::get('supportticket/{id}', [UserController::class, 'supportTicket']);
+Route::get('project/{id}', [UserController::class, 'userProject']);
+Route::get('bonus/{id}', [UserController::class, 'bonus']);
+Route::get('bonus/{id}', [UserController::class, 'bonus']);
+Route::get('logout', [UserController::class, 'logout']);
 });

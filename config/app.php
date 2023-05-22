@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'jwt_secret'=>'c7711fd3469672d2cc5000a6a875db274411e9a6e522c52a3634a83fb8291db9'
 ];
